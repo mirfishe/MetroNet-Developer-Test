@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Introduction</title>
+    <!-- Bootstrap css link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+<style>
+
+    #errorHeader{
+        display: none;
+    }
+    #submitResults{
+        display: none;
+    }
+
+</style>
+
+</head>
+<body>
+
+<section id="landing-section">
+    <div id="header" class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-4">Team Introduction</h1>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div id="submitResults" class="container">
+        <div class="row justify-content-center">
+            <div class="col col-sm-8">
+                <h3>Name</h3>
+                <p id="lblName" class="ml-2"></p>
+                <h3>Fun Fact</h3>
+                <p id="lblFunFact" class="ml-2"></p>
+                <button id="btnReset" type="button" class="btn btn-primary" onclick="resetForm()">Introduce A Diffrent Team Member</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div id="formEntry" class="container">
+        <div class="row justify-content-center">
+            <div class="col col-sm-8">
+                <div id="errorHeader" class="alert alert-danger"></div>
+                <form onsubmit="introduceYourself()">
+                <div class="form-group">
+                    <label for="txtName">Name</label><br>
+                    <input type="text" id="txtName" class="form-control-lg" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="txtFunFact">Fun Fact</label><br>
+                    <textarea id="txtFunFact" class="form-control-lg" rows="10" cols="50" placeholder="A Fun Fact About Yourself"></textarea>
+                </div>
+                <div class="form-group">
+                    <button id="btnSubmit" type="submit" class="btn btn-primary">Introduce Yourself</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+// const searchForm = document.getElementById("frmSearch");
+// searchForm.addEventListener('submit', introduceYourself); 
+const txtName = document.getElementById("txtName");
+const txtFunFact = document.getElementById("txtFunFact");
+const divSubmitResults = document.getElementById("submitResults");
+const divFormEntry = document.getElementById("formEntry");
+const divErrorHeader = document.getElementById("errorHeader");
+const lblName = document.getElementById("lblName");
+const lblFunFact = document.getElementById("lblFunFact");
+
+const introduceYourself = () => {
+    event.preventDefault();
+    // console.log("introduceYourself", event);
+
+    divErrorHeader.innerHTML = "";
+
+    let validName = false;
+    let errNameMessage = "Please enter your name.";
+    let validFunFact = false;
+    let errFunFactMessage = "Please enter a fun fact about yourself.";
+    let validForm = false;
+
+    if (txtName.value !== undefined && txtName.value !== "") {
+        validName = true;
+    } else {
+        divErrorHeader.innerHTML = errNameMessage;
+        validName = false;
+    };
+
+    if (txtFunFact.value !== undefined && txtFunFact.value !== "") {
+        validFunFact = true;
+    } else {
+        divErrorHeader.innerHTML = divErrorHeader.innerHTML + " " + errFunFactMessage;
+        validFunFact = false;
+    };
+
+    if (validName && validFunFact) {
+        validForm = true;
+        divErrorHeader.style.display = "none";
+        divErrorHeader.innerHTML = "";
+        lblName.innerHTML = txtName.value;
+        lblFunFact.innerHTML = txtFunFact.value;
+        divSubmitResults.style.display = "block";
+        divFormEntry.style.display = "none";
+        console.log("txtName.value", txtName.value);
+        console.log("txtFunFact.value", txtFunFact.value);
+    } else {
+        validForm = false;
+        divErrorHeader.style.display = "block";
+    };
+
+
+};
+
+const resetForm = () => {
+
+    lblName.innerHTML = "";
+    lblFunFact.innerHTML = "";
+    divSubmitResults.style.display = "none";
+    divFormEntry.style.display = "block";
+    txtName.value = "";
+    txtFunFact.value = "";
+
+};
+
+</script>
+    
+    <!-- Bootstrap script tags -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
