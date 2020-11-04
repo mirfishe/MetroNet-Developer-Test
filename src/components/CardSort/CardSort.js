@@ -139,16 +139,12 @@ const CardSort = (props) => {
         switch (iconName) {
             case "Hearts":
                 return "♥";
-                break;
             case "Diamonds":
                 return "♦";
-                break;
             case "Clubs":
                 return "♣";
-                break;
             case "Spades":
                 return "♠";
-                break;
             default:
                 return "";
           };
@@ -156,33 +152,32 @@ const CardSort = (props) => {
     };
 
     return(
-        <Container>
-            <Row>
-            <Col>
-            <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ suffleDeck();}}>Shuffle</Button>
-            </Col>
-            <Col>
-            <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "ASC");}}>Sort ASC</Button>
-            </Col>
-            <Col>
-            <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "DESC");}}>Sort DESC</Button>
-            </Col>
+        <Container className="mb-5">
+            <Row className="my-4">
+                <Col>
+                    <h2 className="text-center">Card Sorting</h2>
+                </Col>
             </Row>
             <Row>
-            {sortedDeck.map((card, index) => {
-            return (
-            <React.Fragment>
-            {/* <p>{card.value} of {card.suit} sort: {card.sort}</p> */}
-
-            {/* <div key={index} style="width: 50px; height: 80px; padding: 10px; border: solid 1px #808080; background-color: white; display: inline-block; border-radius: 10px; font-size: 18px; text-align: center; margin: 3px; border: solid 3px;"> */}
-            {/* <Col key={index} xs="1" className="m-1" style={{width: "50px"}, {height: "80px"}, {padding: "10px"}, {border: "solid 1px #808080"}, {backgroundColor: "white"}, {display: "inline-block"}, {borderRadius: "10px"}, {fontSize: "18px"}, {textAlign: "center"}, {margin: "3px"}, {border: "solid 3px"}}> */}
-            <Col key={index} xs="1" className="m-1 py-2 border">
-            <h2 className="text-center">{card.value}</h2>
-            <h1 className="text-center">{renderIcon(card.suit)}</h1>
-            </Col>
-            </React.Fragment>
-                )
-            })}
+                <Col>
+                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ suffleDeck();}}>Shuffle</Button>
+                </Col>
+                <Col>
+                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "ASC");}}>Sort ASC</Button>
+                </Col>
+                <Col>
+                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "DESC");}}>Sort DESC</Button>
+                </Col>
+            </Row>
+            <Row>
+                {sortedDeck.map((card, index) => {
+                return (
+                    <Col key={index} xs="1" className="m-1 py-2 border">
+                        <h2 className="text-center">{card.value}</h2>
+                        <h1 className="text-center">{renderIcon(card.suit)}</h1>
+                    </Col>
+                    )
+                })}
             </Row>
         </Container>
     );

@@ -91,7 +91,12 @@ const DataValidation = (props) => {
     }, []);
 
     return(
-        <Container>
+        <Container className="mb-5">
+            <Row className="my-4">
+                <Col>
+                    <h2 className="text-center">Data Validation</h2>
+                </Col>
+            </Row>
             {/* {contactList.map((contact, index) => {
             return (
                 <Row key={index}>
@@ -102,24 +107,30 @@ const DataValidation = (props) => {
                 </Row>
                 )
             })} */}
-            {nameList.map((name, index) => {
-            return (
-                <Row key={index}>
-                    <Col>{name.fullName}</Col>
-                    {/* <Col>{name.emailValid.toString()}||{name.emailAddress}</Col>
-                    <Col>{name.phoneValid.toString()}||{name.phoneNumber}</Col> */}
-                    <Col>{name.dataValidMessage}</Col>
-                </Row>
-                )
-            })}
-            {cityList.map((city, index) => {
-            return (
-                <Row key={index}>
-                    <Col>{city.cityName}</Col>
-                    <Col>{city.validationErrors}</Col>
-                </Row>
-                )
-            })}
+            <Row>
+                <Col>
+                {nameList.map((name, index) => {
+                return (
+                    <Row key={index}>
+                        <Col>{name.fullName}</Col>
+                        {/* <Col>{name.emailValid.toString()}||{name.emailAddress}</Col>
+                        <Col>{name.phoneValid.toString()}||{name.phoneNumber}</Col> */}
+                        <Col>{name.dataValidMessage}</Col>
+                    </Row>
+                    )
+                })}
+                </Col>
+                <Col>
+                {cityList.map((city, index) => {
+                return (
+                    <Row key={index}>
+                        <Col>{city.cityName}</Col>
+                        <Col>{city.validationErrors}</Col>
+                    </Row>
+                    )
+                })}
+                </Col>
+            </Row>
         </Container>
     );
 
