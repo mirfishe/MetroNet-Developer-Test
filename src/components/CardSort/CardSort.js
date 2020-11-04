@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {Container, Col, Row, Card, CardBody, CardText, CardHeader, CardFooter, CardImg, Alert, Button} from "reactstrap";
+import "bootstrap/dist/css/bootstrap.css";
+import {Container, Col, Row, Button} from "reactstrap";
 
 const CardSort = (props) => {
 
@@ -9,7 +10,7 @@ const CardSort = (props) => {
     const [suits, setSuits] = useState(["Hearts", "Diamonds", "Clubs", "Spades"]);
     const [values, setValues] = useState(["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]);
 
-    const createDeck = () => {
+    const createReferenceDeck = () => {
         let newDeck = [];
         let cardCounter = 1;
     
@@ -36,7 +37,28 @@ const CardSort = (props) => {
         };
     
         setTestDeck(newDeck);
+        setSortedDeck(newDeck);
         // return newDeck;
+    };
+
+    const suffleDeck = () => {
+
+        let shuffleDeck = [...sortedDeck];
+
+        // https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+        // for 1000 turns
+        // switch the values of two random cards
+        for (let i = 0; i < 1000; i++) {
+            let location1 = Math.floor((Math.random() * shuffleDeck.length));
+            let location2 = Math.floor((Math.random() * shuffleDeck.length));
+            let tempCard = shuffleDeck[location1];
+
+            shuffleDeck[location1] = shuffleDeck[location2];
+            shuffleDeck[location2] = tempCard;
+        };
+
+        setSortedDeck(shuffleDeck);
+
     };
 
     const sortDeck = (sortingDeck, sortOrder) => {
@@ -98,7 +120,7 @@ const CardSort = (props) => {
 
     useEffect(() => {
         // console.log("CardSort.js useEffect getDeck");
-        createDeck();
+        createReferenceDeck();
         createTestDeck();
     }, []);
 
@@ -113,24 +135,55 @@ const CardSort = (props) => {
 
     }, [testDeck]);
 
+    const renderIcon = (iconName) => {
+
+        switch (iconName) {
+            case "Hearts":
+                return "♥";
+                break;
+            case "Diamonds":
+                return "♦";
+                break;
+            case "Clubs":
+                return "♣";
+                break;
+            case "Spades":
+                return "♠";
+                break;
+            default:
+                return "";
+          };
+
+    };
+
     return(
         <Container>
             <Row>
             <Col>
-            card sort
-            create a lookup table with all possible cards
-            add the inputed objects to an array of object with their rank/sortOrder added
-            perform an array sort on the rank/sortOrder
-
+            <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ suffleDeck();}}>Shuffle</Button>
+            </Col>
+            <Col>
             <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "ASC");}}>Sort ASC</Button>
+            </Col>
+            <Col>
             <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "DESC");}}>Sort DESC</Button>
-
-            {sortedDeck.map((card) => {
+            </Col>
+            </Row>
+            <Row>
+            {sortedDeck.map((card, index) => {
             return (
-            <p>{card.value} of {card.suit} sort: {card.sort}</p>
+            <React.Fragment>
+            {/* <p>{card.value} of {card.suit} sort: {card.sort}</p> */}
+
+            {/* <div key={index} style="width: 50px; height: 80px; padding: 10px; border: solid 1px #808080; background-color: white; display: inline-block; border-radius: 10px; font-size: 18px; text-align: center; margin: 3px; border: solid 3px;"> */}
+            {/* <Col key={index} xs="1" className="m-1" style={{width: "50px"}, {height: "80px"}, {padding: "10px"}, {border: "solid 1px #808080"}, {backgroundColor: "white"}, {display: "inline-block"}, {borderRadius: "10px"}, {fontSize: "18px"}, {textAlign: "center"}, {margin: "3px"}, {border: "solid 3px"}}> */}
+            <Col key={index} xs="1" className="m-1 py-2 border">
+            <h2 className="text-center">{card.value}</h2>
+            <h1 className="text-center">{renderIcon(card.suit)}</h1>
+            </Col>
+            </React.Fragment>
                 )
             })}
-            </Col>
             </Row>
         </Container>
     );
