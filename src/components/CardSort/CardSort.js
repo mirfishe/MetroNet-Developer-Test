@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import {Container, Col, Row, Button} from "reactstrap";
 
 const CardSort = (props) => {

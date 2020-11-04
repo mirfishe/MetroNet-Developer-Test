@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import {Container, Col, Row} from "reactstrap";
 import Contacts from "./Contacts.json";
 
-
 const DataValidation = (props) => {
 
     // let contactList = [...Contacts];
