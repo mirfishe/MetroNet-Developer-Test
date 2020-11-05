@@ -158,7 +158,7 @@ const CardSort = (props) => {
                     <h2 className="text-center">Card Sorting</h2>
                 </Col>
             </Row>
-            <Row>
+            <Row className="my-4">
                 <Col>
                     <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ suffleDeck();}}>Shuffle</Button>
                 </Col>
