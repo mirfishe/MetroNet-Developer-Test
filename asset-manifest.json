@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/metronet-developer-test/static/css/main.ea1455b2.chunk.css",
+    "main.js": "/metronet-developer-test/static/js/main.56388bdf.chunk.js",
+    "main.js.map": "/metronet-developer-test/static/js/main.56388bdf.chunk.js.map",
+    "runtime-main.js": "/metronet-developer-test/static/js/runtime-main.fc83ccc2.js",
+    "runtime-main.js.map": "/metronet-developer-test/static/js/runtime-main.fc83ccc2.js.map",
+    "static/css/2.95f25948.chunk.css": "/metronet-developer-test/static/css/2.95f25948.chunk.css",
+    "static/js/2.e5c4bf32.chunk.js": "/metronet-developer-test/static/js/2.e5c4bf32.chunk.js",
+    "static/js/2.e5c4bf32.chunk.js.map": "/metronet-developer-test/static/js/2.e5c4bf32.chunk.js.map",
+    "static/js/3.eeaf052f.chunk.js": "/metronet-developer-test/static/js/3.eeaf052f.chunk.js",
+    "static/js/3.eeaf052f.chunk.js.map": "/metronet-developer-test/static/js/3.eeaf052f.chunk.js.map",
+    "index.html": "/metronet-developer-test/index.html",
+    "static/css/2.95f25948.chunk.css.map": "/metronet-developer-test/static/css/2.95f25948.chunk.css.map",
+    "static/css/main.ea1455b2.chunk.css.map": "/metronet-developer-test/static/css/main.ea1455b2.chunk.css.map",
+    "static/js/2.e5c4bf32.chunk.js.LICENSE.txt": "/metronet-developer-test/static/js/2.e5c4bf32.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc83ccc2.js",
+    "static/css/2.95f25948.chunk.css",
+    "static/js/2.e5c4bf32.chunk.js",
+    "static/css/main.ea1455b2.chunk.css",
+    "static/js/main.56388bdf.chunk.js"
+  ]
+}
