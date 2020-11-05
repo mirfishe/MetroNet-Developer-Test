@@ -163,10 +163,10 @@ const CardSort = (props) => {
                     <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ suffleDeck();}}>Shuffle</Button>
                 </Col>
                 <Col>
-                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "ASC");}}>Sort ASC</Button>
+                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "ASC");}}>Sort Ascending</Button>
                 </Col>
                 <Col>
-                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "DESC");}}>Sort DESC</Button>
+                    <Button size="lg" color="primary" onClick={(event) => {/*console.log(event.target.value);*/ sortDeck(testDeck, "DESC");}}>Sort Descending</Button>
                 </Col>
             </Row>
             <Row>
